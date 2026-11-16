@@ -1,0 +1,7 @@
+from ubuntu:24.04
+
+arg APP_VERSION=1.0
+
+run echo "Building application version: $APP_VERSION"
+
+cmd [ "echo", "Docker ARG lesoon completed" ]
