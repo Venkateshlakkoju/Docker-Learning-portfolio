@@ -2,32 +2,79 @@
 
 A hands-on Docker learning repository documenting my journey into containerization and DevOps.
 
-I created these practical examples while learning Docker, building images, running containers, managing storage, and writing Dockerfiles.
+This repository contains practical exercises, Dockerfiles, Docker Compose projects, networking examples, security practices, and container management tasks completed during my DevOps learning journey.
 
 ## 📚 Concepts Practiced
 
+### Docker Fundamentals
 - Docker images and containers
-- Dockerfile instructions: `FROM`, `RUN`, `CMD`, `COPY`, `ADD`
-- `WORKDIR` and `EXPOSE`
-- Environment variables using `ENV` and `ARG`
-- `ENTRYPOINT` vs `CMD`
-- Docker volumes
-- `.dockerignore`
+- Container lifecycle management
+- Docker commands and troubleshooting
+
+### Dockerfile and Image Creation
+- FROM, RUN, CMD, COPY, ADD
+- WORKDIR and EXPOSE
+- ENV and ARG
+- ENTRYPOINT vs CMD
+- USER instruction
+- .dockerignore
 - Image layers and build cache
-- Multi-stage Docker builds
+- Multi-stage builds
+- Image tagging and custom image creation
+
+### Docker Storage
+- Docker volumes
+- Bind mounts
+- Persistent data management
+
+### Docker Networking
+- Bridge networks
+- Custom bridge networks
+- Container-to-container communication
+- Docker DNS and service discovery
+- Network isolation and reconnection
+
+### Docker Compose
+- Compose YAML files
+- Multi-container applications
+- Service dependencies
+- Health checks
+- Restart policies
+- Networking and scaling
+- Environment variables
+- WordPress and MySQL final project
+
+### Docker Security
+- Running containers as non-root users
+- Docker security best practices
+- Secure environment variable handling
+
+### Docker Hub
+- Building and tagging images
+- Pushing images to Docker Hub
+- Public and private repositories
+
+### Resource Management and Advanced Operations
+- Container memory limits
+- CPU resource management
+- Container inspection and troubleshooting
 
 ## 📁 Repository Structure
 
 | Folder | Concept |
 |---|---|
-| `add-demo/` | ADD instruction |
-| `arg-demo/` | Build-time ARG |
-| `cached-image/` | Image layers and build cache |
-| `dockerfile-basics/` | ENTRYPOINT and CMD |
-| `dockerignore-demo/` | .dockerignore |
-| `multi-stage-build/` | Multi-stage builds |
-| `volume-demo/` | Docker VOLUME |
-| `website/` | Sample website HTML |
+| add-demo/ | ADD instruction |
+| arg-demo/ | Build-time ARG |
+| cached-image/ | Build cache |
+| dockerfile-basics/ | ENTRYPOINT and CMD |
+| dockerignore-demo/ | .dockerignore |
+| multi-stage-build/ | Multi-stage builds |
+| volume-demo/ | Docker volumes |
+| website/ | Sample website |
+| docker-compose/ | Docker Compose projects |
+| docker-security/ | Docker security |
+| docker-custom-image/ | Custom Docker image |
+| Screenshorts/ | Practice screenshots |
 
 ## 🚀 Getting Started
 
@@ -35,46 +82,40 @@ Make sure Docker is installed and running.
 
 Clone this repository:
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd docker-learning-portfolio
-```
+    git clone https://github.com/Venkateshlakkoju/Docker-Learning-portfolio.git
+    cd Docker-Learning-portfolio
 
 Build and run an example:
 
-```bash
-docker build -t add-demo ./add-demo
-docker run --rm add-demo
-```
+    docker build -t add-demo ./add-demo
+    docker run --rm add-demo
 
-### Build the ARG example
+## 🐳 Docker Compose Examples
 
-```bash
-docker build -t arg-demo ./arg-demo
-docker build -t arg-demo:v2 --build-arg APP_VERSION=2.0 ./arg-demo
-docker run --rm arg-demo:v2
-```
+Navigate to a project folder and start its services:
 
-### Build the multi-stage example
+    cd docker-compose/basic
+    docker compose up -d --build
 
-```bash
-docker build -t multi-stage-demo ./multi-stage-build
-docker run -d --name multi-stage-container -p 8087:80 multi-stage-demo
-```
+Check running services:
 
-Open `http://localhost:8087` in your browser.
+    docker compose ps
 
-### Build the volume example
+Stop and remove the containers and network:
 
-```bash
-docker build -t volume-demo ./volume-demo
-docker volume create docker-volume
-docker run -d --name volume-container -v docker-volume:/app/data volume-demo
-```
+    docker compose down
 
-## 🎯 Learning Objective
+Note: Named volumes are preserved when using docker compose down without the -v option.
 
-The objective of this repository is to develop practical Docker skills and build a strong foundation for DevOps tools and workflows.
+## 🔐 Environment Variables
+
+Some Compose projects use environment variables for passwords and configuration.
+
+Copy the example environment file before starting those projects:
+
+    cp .env.example .env
+
+Use your own local values in .env. Never commit real passwords, tokens, or secrets to GitHub.
 
 ## 🛠️ Tools Used
 
@@ -83,14 +124,13 @@ The objective of this repository is to develop practical Docker skills and build
 - Ubuntu on WSL2
 - Linux terminal
 - Git and GitHub
+- Docker Hub
 
 ## 📈 Next Learning Goals
 
-- Docker Networking
-- Docker Compose
-- Container troubleshooting
-- CI/CD
+- CI/CD pipelines
 - Kubernetes
+- Advanced DevOps workflows
 
 ---
 

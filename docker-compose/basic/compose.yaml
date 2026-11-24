@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    image: nginx:latest
+    ports:
+      - "8088:80"
+    restart: unless-stopped
+    environment:
+      APP_ENV: development
+      APP_VERSION: "1.0"
+      STUDENT_NAME: venkatesh
+    volumes:
+      - ./website:/usr/share/nginx/html
+  volume-demo:
+    image: alpine
+    command: sh -c "while true; do sleep 3600; done"
+    volumes:
+      - app-data:/data
+
+
+volumes:
+  app-data:
